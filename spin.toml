@@ -1,0 +1,16 @@
+spin_manifest_version = "1"
+authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+description = "An example using `componentize-py` and NumPy"
+name = "spin-numpy-example"
+trigger = { type = "http", base = "/" }
+version = "1.0.0"
+
+[[component]]
+id = "hello"
+source = "spin-numpy-example.wasm"
+description = "An example using `componentize-py` and NumPy"
+[component.trigger]
+route = "/..."
+[component.build]
+command = "componentize-py -d wit -w http-trigger componentize app -o spin-numpy-example.wasm"
+watch = ["app.py"]

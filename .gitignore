@@ -1,0 +1,4 @@
+.spin
+__pycache__
+numpy*
+*.wasm

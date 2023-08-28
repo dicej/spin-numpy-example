@@ -5,14 +5,14 @@ import numpy
 import json
 
 class InboundHttp(exports.InboundHttp):
-    def handle_request(req: Request) -> Response:
+    def handle_request(self, req: Request) -> Response:
         try:
             if req.method == Method.POST and req.uri == "/multiply" and req.body is not None:
-                body = json.loads(req.body)
+                [a, b] = json.loads(req.body)
                 return Response(
                     200,
                     [("content-type", "application/json")],
-                    bytes(json.dumps(numpy.matmul(body["a"], body["b"]).tolist()), "utf-8")
+                    bytes(json.dumps(numpy.matmul(a, b).tolist()), "utf-8")
                 )
             else:
                 return Response(400, None, None)

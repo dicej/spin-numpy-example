@@ -9,7 +9,7 @@ application.
 
 ## Prerequisites
 
-* `componentize-py` 0.3.2
+* `componentize-py` 0.4.0
 * `NumPy`, built for WASI
 * `Spin` branch `wasmtime-592ddc52`
 * `Rust` (specifically, `Cargo`) for installing `Spin`
@@ -37,7 +37,7 @@ Then, in another terminal, use cURL to send a request to the app:
 
 ```
 curl -i -H 'content-type: application/json' \
-    -d '{ "a": [[1, 2], [4, 5], [6, 7]], "b": [[1, 2, 3], [4, 5, 6]] }' \
+    -d '[[[1, 2], [4, 5], [6, 7]], [[1, 2, 3], [4, 5, 6]]]' \
     http://127.0.0.1:3000/multiply
 ```
 
